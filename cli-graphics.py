@@ -46,3 +46,8 @@ class CLI_Graphics:
             CLI_Graphics.Buffer.type_out()
 
             return
+        
+        if CLI_Graphics.operating_system in ["linux", "os-x"]:
+            return os.system("clear")
+        elif CLI_Graphics.operating_system == "windows":
+            return os.system("cls")
