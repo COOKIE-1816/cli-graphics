@@ -5,6 +5,21 @@ import sys
 class CLI_Graphics:
     operating_system = "unknown"
 
+    class Buffer:
+        buffer = [] # Every line is stored as string value in this list.
+
+        def type_out():
+            CLI_Graphics.clear(False)
+
+            limit = len(CLI_Graphics.Buffer.buffer)
+            ax = 0
+
+            while True:
+                if ax > limit:
+                    break
+                
+                print(CLI_Graphics.Buffer.buffer[ax])
+
 
     def __init__():
         if sys.platform in ["linux", "linux2"]:
@@ -15,6 +30,7 @@ class CLI_Graphics:
             CLI_Graphics.operating_system = "windows"
         else:
             input("Failed to detect operating system! cli-graphics will not work properly!")
+            return
         
         """
         with open("json/cli-graphics_characters.json", "r") as characters:
@@ -22,3 +38,11 @@ class CLI_Graphics:
         """
 
         CLI_Graphics.clear()
+
+    
+    def clear(including_buffer = True):
+        if including_buffer:
+            CLI_Graphics.Buffer.buffer = []
+            CLI_Graphics.Buffer.type_out()
+
+            return
