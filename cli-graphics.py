@@ -19,6 +19,24 @@ class CLI_Graphics:
                     break
                 
                 print(CLI_Graphics.Buffer.buffer[ax])
+                ax = ax + 1
+    
+    class Progress_Bar:
+        def __init__(position, title, start):
+            CLI_Graphics.clear(False)
+
+            if position == "BOTTOM":
+                ax = 0
+
+                while True:
+                    if ax < CLI_Graphics.Buffer.Size.x_size - 2:
+                        print(" ")
+                        ax = ax + 1
+                    else:
+                        break
+            
+            print(title)
+            print(("#" * start) + (" " * (100 - start)))
 
 
     def __init__():
